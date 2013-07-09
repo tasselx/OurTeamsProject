@@ -74,8 +74,9 @@ public final class R {
         public static final int loading_5=0x7f020008;
         public static final int loading_6=0x7f020009;
         public static final int loading_7=0x7f02000a;
-        public static final int login_bg=0x7f02000b;
-        public static final int xiaoma=0x7f02000c;
+        public static final int loading_bg=0x7f02000b;
+        public static final int login_bg=0x7f02000c;
+        public static final int xiaoma=0x7f02000d;
     }
     public static final class id {
         public static final int action_settings=0x7f0b0006;

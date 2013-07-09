@@ -18,6 +18,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import com.xiaoma.frame.ApplicationManager;
 import com.xiaoma.frame.R;
@@ -44,11 +45,13 @@ public class MainActivity extends BaseActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_activity);
+        
+        Toast.makeText(this, "This is our's Main Page", 0).show();
         Test();
     }
     
     /**
-     * <Summary Description>
+     * <This is Method used to Test SQLiteDatabase handle >
      */
     private void Test()
     {
