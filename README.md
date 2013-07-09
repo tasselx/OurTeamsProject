@@ -56,12 +56,6 @@
 ![XiaoMaGuo](https://raw.github.com/xiaomaguoguo/XiaoMaFrame/master/res/drawable-mdpi/xiaoma.jpg "酷_莫名简单、小马果，一个很幸福的坏人！！！")
 
 
-### 果断猛戳该图片，跳转我的博客，批评指点！！！
-[![image]](http://mzh3344258.blog.51cto.com/)
-[image]: https://raw.github.com/xiaomaguoguo/XiaoMaFrame/master/res/drawable-mdpi/xiaoma.jpg "github"
-
-
-
 ### 项目属于：
 
 > Android开发新手
