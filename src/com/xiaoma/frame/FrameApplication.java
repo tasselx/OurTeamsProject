@@ -1,7 +1,7 @@
 /*
  * FileName:  FrameApplication.java
  * CopyRight:  Belong to  <XiaoMaGuo Technologies > own 
- * Description:  <description>
+ * Description:  <The class is invoked then  our application launch >
  * Modify By :  XiaoMaGuo ^_^ 
  * Modify Date:   2013-5-2
  * Follow Order No.:  <Follow Order No.>
@@ -43,6 +43,8 @@ public class FrameApplication extends Application
     public static String ROOTPATH = "/XiaoMa";
     
     public static String DOWNLOADPATH = "/XiaoMaDownload";
+    
+    public static String DATABASEPATH = "/XiaoMaDatabase";
     
     public static String ERRORLOGPATH = "/XiaoMaErrorLog";
     
@@ -135,6 +137,7 @@ public class FrameApplication extends Application
             ROOTPATH = ROOT + ROOTPATH;
             DOWNLOADPATH = ROOTPATH + DOWNLOADPATH;
             ERRORLOGPATH = ROOTPATH + ERRORLOGPATH;
+            DATABASEPATH = ROOTPATH + DATABASEPATH;
         }
         
         File rootPath = new File(ROOTPATH);
@@ -157,6 +160,14 @@ public class FrameApplication extends Application
             errorlogpath.mkdirs();
             Log.d("Init errorlogpath", "errorlogpath = " + ERRORLOGPATH);
         }
+        
+        File databasePath = new File(DATABASEPATH);
+        if (!databasePath.exists())
+        {
+            databasePath.mkdirs();
+            Log.d("Init databasePath", "databasePath = " + DATABASEPATH);
+        }
+        
     }
     
     /**
