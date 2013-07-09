@@ -1,0 +1,733 @@
+{DEBUG} [2013-07-09 18:36:33,738] <org.androidpn.server.xmpp.XmppServer> : base.dir=..
+{DEBUG} [2013-07-09 18:36:33,887] <org.apache.commons.configuration.ConfigurationUtils> : ConfigurationUtils.locate(): base is F:\恒拓开源\项目相关\XMPP推送\androidpn-server-0.5.0-bin\androidpn-server-0.5.0\bin, name is config.xml
+{DEBUG} [2013-07-09 18:36:33,962] <org.apache.commons.configuration.ConfigurationUtils> : Loading configuration from the context classpath (config.xml)
+{DEBUG} [2013-07-09 18:36:34,480] <org.apache.commons.configuration.ConfigurationUtils> : ConfigurationUtils.locate(): base is F:\恒拓开源\项目相关\XMPP推送\androidpn-server-0.5.0-bin\androidpn-server-0.5.0\bin, name is config.properties
+{DEBUG} [2013-07-09 18:36:34,483] <org.apache.commons.configuration.ConfigurationUtils> : Loading configuration from the context classpath (config.properties)
+{INFO } [2013-07-09 18:36:34,615] <org.androidpn.server.util.ConfigManager> : Configuration loaded: config.xml
+{DEBUG} [2013-07-09 18:36:34,645] <org.androidpn.server.xmpp.XmppServer> : server.home.dir=F:\恒拓开源\项目相关\XMPP推送\androidpn-server-0.5.0-bin\androidpn-server-0.5.0
+{INFO } [2013-07-09 18:36:34,935] <org.springframework.context.support.ClassPathXmlApplicationContext> : Refreshing org.springframework.context.support.ClassPathXmlApplicationContext@3c0007: display name [org.springframework.context.support.ClassPathXmlApplicationContext@3c0007]; startup date [Tue Jul 09 18:36:34 CST 2013]; root of context hierarchy
+{INFO } [2013-07-09 18:36:35,165] <org.springframework.beans.factory.xml.XmlBeanDefinitionReader> : Loading XML bean definitions from class path resource [spring-config.xml]
+{INFO } [2013-07-09 18:36:35,938] <org.springframework.context.support.ClassPathXmlApplicationContext> : Bean factory for application context [org.springframework.context.support.ClassPathXmlApplicationContext@3c0007]: org.springframework.beans.factory.support.DefaultListableBeanFactory@ab54eb
+{INFO } [2013-07-09 18:36:36,306] <org.springframework.beans.factory.config.PropertyPlaceholderConfigurer> : Loading properties file from class path resource [jdbc.properties]
+{INFO } [2013-07-09 18:36:36,394] <org.springframework.beans.factory.support.DefaultListableBeanFactory> : Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@ab54eb: defining beans [propertyConfigurer,dataSource,sessionFactory,transactionManager,userDao,userService,org.springframework.beans.factory.config.CustomEditorConfigurer#0,xmppHandler,filterChainBuilder,ioAcceptor]; root of factory hierarchy
+{INFO } [2013-07-09 18:36:37,114] <org.hibernate.cfg.annotations.Version> : Hibernate Annotations 3.4.0.GA
+{INFO } [2013-07-09 18:36:37,191] <org.hibernate.cfg.Environment> : Hibernate 3.3.1.GA
+{INFO } [2013-07-09 18:36:37,203] <org.hibernate.cfg.Environment> : hibernate.properties not found
+{INFO } [2013-07-09 18:36:37,241] <org.hibernate.cfg.Environment> : Bytecode provider name : javassist
+{INFO } [2013-07-09 18:36:37,344] <org.hibernate.cfg.Environment> : using JDK 1.4 java.sql.Timestamp handling
+{INFO } [2013-07-09 18:36:37,569] <org.hibernate.annotations.common.Version> : Hibernate Commons Annotations 3.1.0.GA
+{INFO } [2013-07-09 18:36:37,617] <org.hibernate.cfg.Configuration> : configuring from url: file:/F:/恒拓开源/项目相关/XMPP推送/androidpn-server-0.5.0-bin/androidpn-server-0.5.0/conf/hibernate.cfg.xml
+{INFO } [2013-07-09 18:36:37,842] <org.hibernate.cfg.Configuration> : Configured SessionFactory: null
+{INFO } [2013-07-09 18:36:38,047] <org.hibernate.cfg.AnnotationBinder> : Binding entity from annotated class: org.androidpn.server.model.User
+{INFO } [2013-07-09 18:36:38,200] <org.hibernate.cfg.annotations.EntityBinder> : Bind entity org.androidpn.server.model.User on table apn_user
+{INFO } [2013-07-09 18:36:38,298] <org.hibernate.cfg.AnnotationConfiguration> : Hibernate Validator not found: ignoring
+{INFO } [2013-07-09 18:36:38,299] <org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean> : Building new Hibernate SessionFactory
+{INFO } [2013-07-09 18:36:38,323] <org.hibernate.cfg.search.HibernateSearchEventListenerRegister> : Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+{INFO } [2013-07-09 18:36:38,487] <org.hibernate.connection.ConnectionProviderFactory> : Initializing connection provider: org.springframework.orm.hibernate3.LocalDataSourceConnectionProvider
+{INFO } [2013-07-09 18:36:39,950] <org.hibernate.cfg.SettingsFactory> : RDBMS: HSQL Database Engine, version: 1.8.0
+{INFO } [2013-07-09 18:36:39,951] <org.hibernate.cfg.SettingsFactory> : JDBC driver: HSQL Database Engine Driver, version: 1.8.0
+{INFO } [2013-07-09 18:36:40,010] <org.hibernate.dialect.Dialect> : Using dialect: org.hibernate.dialect.HSQLDialect
+{INFO } [2013-07-09 18:36:40,019] <org.hibernate.transaction.TransactionFactoryFactory> : Transaction strategy: org.springframework.orm.hibernate3.SpringTransactionFactory
+{INFO } [2013-07-09 18:36:40,020] <org.hibernate.transaction.TransactionManagerLookupFactory> : No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+{INFO } [2013-07-09 18:36:40,021] <org.hibernate.cfg.SettingsFactory> : Automatic flush during beforeCompletion(): disabled
+{INFO } [2013-07-09 18:36:40,028] <org.hibernate.cfg.SettingsFactory> : Automatic session close at end of transaction: disabled
+{INFO } [2013-07-09 18:36:40,031] <org.hibernate.cfg.SettingsFactory> : JDBC batch size: 15
+{INFO } [2013-07-09 18:36:40,032] <org.hibernate.cfg.SettingsFactory> : JDBC batch updates for versioned data: disabled
+{INFO } [2013-07-09 18:36:40,049] <org.hibernate.cfg.SettingsFactory> : Scrollable result sets: enabled
+{INFO } [2013-07-09 18:36:40,051] <org.hibernate.cfg.SettingsFactory> : JDBC3 getGeneratedKeys(): disabled
+{INFO } [2013-07-09 18:36:40,051] <org.hibernate.cfg.SettingsFactory> : Connection release mode: auto
+{INFO } [2013-07-09 18:36:40,054] <org.hibernate.cfg.SettingsFactory> : Default batch fetch size: 1
+{INFO } [2013-07-09 18:36:40,056] <org.hibernate.cfg.SettingsFactory> : Generate SQL with comments: enabled
+{INFO } [2013-07-09 18:36:40,058] <org.hibernate.cfg.SettingsFactory> : Order SQL updates by primary key: disabled
+{INFO } [2013-07-09 18:36:40,059] <org.hibernate.cfg.SettingsFactory> : Order SQL inserts for batching: disabled
+{INFO } [2013-07-09 18:36:40,060] <org.hibernate.cfg.SettingsFactory> : Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+{INFO } [2013-07-09 18:36:40,065] <org.hibernate.hql.ast.ASTQueryTranslatorFactory> : Using ASTQueryTranslatorFactory
+{INFO } [2013-07-09 18:36:40,065] <org.hibernate.cfg.SettingsFactory> : Query language substitutions: {}
+{INFO } [2013-07-09 18:36:40,066] <org.hibernate.cfg.SettingsFactory> : JPA-QL strict compliance: disabled
+{INFO } [2013-07-09 18:36:40,068] <org.hibernate.cfg.SettingsFactory> : Second-level cache: enabled
+{INFO } [2013-07-09 18:36:40,069] <org.hibernate.cfg.SettingsFactory> : Query cache: disabled
+{INFO } [2013-07-09 18:36:40,078] <org.hibernate.cfg.SettingsFactory> : Cache region factory : org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge
+{INFO } [2013-07-09 18:36:40,078] <org.hibernate.cache.impl.bridge.RegionFactoryCacheProviderBridge> : Cache provider: net.sf.ehcache.hibernate.EhCacheProvider
+{INFO } [2013-07-09 18:36:40,105] <org.hibernate.cfg.SettingsFactory> : Optimize cache for minimal puts: disabled
+{INFO } [2013-07-09 18:36:40,105] <org.hibernate.cfg.SettingsFactory> : Structured second-level cache entries: disabled
+{INFO } [2013-07-09 18:36:40,113] <org.hibernate.cfg.SettingsFactory> : Statistics: disabled
+{INFO } [2013-07-09 18:36:40,113] <org.hibernate.cfg.SettingsFactory> : Deleted entity synthetic identifier rollback: disabled
+{INFO } [2013-07-09 18:36:40,116] <org.hibernate.cfg.SettingsFactory> : Default entity-mode: pojo
+{INFO } [2013-07-09 18:36:40,118] <org.hibernate.cfg.SettingsFactory> : Named query checking : enabled
+{INFO } [2013-07-09 18:36:40,474] <org.hibernate.impl.SessionFactoryImpl> : building session factory
+{INFO } [2013-07-09 18:36:41,967] <org.hibernate.impl.SessionFactoryObjectFactory> : Not binding factory to JNDI, no JNDI name configured
+{INFO } [2013-07-09 18:36:42,021] <org.hibernate.tool.hbm2ddl.SchemaUpdate> : Running hbm2ddl schema update
+{INFO } [2013-07-09 18:36:42,022] <org.hibernate.tool.hbm2ddl.SchemaUpdate> : fetching database metadata
+{INFO } [2013-07-09 18:36:42,074] <org.hibernate.tool.hbm2ddl.SchemaUpdate> : updating schema
+{INFO } [2013-07-09 18:36:42,122] <org.hibernate.tool.hbm2ddl.TableMetadata> : table found: PUBLIC.APN_USER
+{INFO } [2013-07-09 18:36:42,123] <org.hibernate.tool.hbm2ddl.TableMetadata> : columns: [created_date, id, username, updated_date, email, name, password]
+{INFO } [2013-07-09 18:36:42,124] <org.hibernate.tool.hbm2ddl.TableMetadata> : foreign keys: []
+{INFO } [2013-07-09 18:36:42,125] <org.hibernate.tool.hbm2ddl.TableMetadata> : indexes: [sys_idx_sys_ct_46_49, sys_idx_47]
+{INFO } [2013-07-09 18:36:42,126] <org.hibernate.tool.hbm2ddl.SchemaUpdate> : schema update complete
+{INFO } [2013-07-09 18:36:42,197] <org.springframework.orm.hibernate3.HibernateTransactionManager> : Using DataSource [org.apache.commons.dbcp.BasicDataSource@767286] of Hibernate SessionFactory for HibernateTransactionManager
+{DEBUG} [2013-07-09 18:36:42,768] <org.apache.mina.core.filterchain.DefaultIoFilterChainBuilder> : LinkedHashMap is an ordered map.
+{INFO } [2013-07-09 18:36:43,024] <org.androidpn.server.xmpp.XmppServer> : Spring Configuration loaded.
+{INFO } [2013-07-09 18:36:43,251] <org.mortbay.log> : Logging to org.slf4j.impl.Log4jLoggerAdapter(org.mortbay.log) via org.mortbay.log.Slf4jLog
+{INFO } [2013-07-09 18:36:43,263] <org.mortbay.log> : jetty-6.1.25
+{INFO } [2013-07-09 18:36:43,956] </> : Initializing Spring root WebApplicationContext
+{INFO } [2013-07-09 18:36:43,967] <org.springframework.web.context.ContextLoader> : Root WebApplicationContext: initialization started
+{INFO } [2013-07-09 18:36:43,987] <org.springframework.web.context.support.XmlWebApplicationContext> : Refreshing org.springframework.web.context.support.XmlWebApplicationContext@c8e4de: display name [Root WebApplicationContext]; startup date [Tue Jul 09 18:36:43 CST 2013]; root of context hierarchy
+{INFO } [2013-07-09 18:36:43,996] <org.springframework.beans.factory.xml.XmlBeanDefinitionReader> : Loading XML bean definitions from ServletContext resource [/WEB-INF/applicationContext.xml]
+{INFO } [2013-07-09 18:36:44,037] <org.springframework.web.context.support.XmlWebApplicationContext> : Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@c8e4de]: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ac866
+{INFO } [2013-07-09 18:36:44,051] <org.springframework.beans.factory.support.DefaultListableBeanFactory> : Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4ac866: defining beans []; root of factory hierarchy
+{INFO } [2013-07-09 18:36:44,052] <org.springframework.web.context.ContextLoader> : Root WebApplicationContext: initialization completed in 83 ms
+{INFO } [2013-07-09 18:36:44,257] </> : Initializing Spring FrameworkServlet 'dispatcher'
+{INFO } [2013-07-09 18:36:44,258] <org.springframework.web.servlet.DispatcherServlet> : FrameworkServlet 'dispatcher': initialization started
+{INFO } [2013-07-09 18:36:44,260] <org.springframework.web.context.support.XmlWebApplicationContext> : Refreshing org.springframework.web.context.support.XmlWebApplicationContext@539f0d: display name [WebApplicationContext for namespace 'dispatcher-servlet']; startup date [Tue Jul 09 18:36:44 CST 2013]; parent: org.springframework.web.context.support.XmlWebApplicationContext@c8e4de
+{INFO } [2013-07-09 18:36:44,261] <org.springframework.beans.factory.xml.XmlBeanDefinitionReader> : Loading XML bean definitions from ServletContext resource [/WEB-INF/dispatcher-servlet.xml]
+{INFO } [2013-07-09 18:36:44,317] <org.springframework.web.context.support.XmlWebApplicationContext> : Bean factory for application context [org.springframework.web.context.support.XmlWebApplicationContext@539f0d]: org.springframework.beans.factory.support.DefaultListableBeanFactory@842d9a
+{INFO } [2013-07-09 18:36:44,376] <org.springframework.beans.factory.support.DefaultListableBeanFactory> : Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@842d9a: defining beans [urlMapping,filenameController,userController,sessionController,notificationController,paramResolver,viewResolver,messageSource]; parent: org.springframework.beans.factory.support.DefaultListableBeanFactory@4ac866
+{DEBUG} [2013-07-09 18:36:44,423] <org.androidpn.server.console.controller.NotificationController> : Found action method [public org.springframework.web.servlet.ModelAndView org.androidpn.server.console.controller.NotificationController.list(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception]
+{DEBUG} [2013-07-09 18:36:44,426] <org.androidpn.server.console.controller.NotificationController> : Found action method [public org.springframework.web.servlet.ModelAndView org.androidpn.server.console.controller.NotificationController.send(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception]
+{DEBUG} [2013-07-09 18:36:44,498] <org.androidpn.server.console.controller.UserController> : Found action method [public org.springframework.web.servlet.ModelAndView org.androidpn.server.console.controller.UserController.list(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception]
+{DEBUG} [2013-07-09 18:36:44,511] <org.androidpn.server.console.controller.SessionController> : Found action method [public org.springframework.web.servlet.ModelAndView org.androidpn.server.console.controller.SessionController.list(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.lang.Exception]
+{INFO } [2013-07-09 18:36:44,624] <org.springframework.web.servlet.DispatcherServlet> : FrameworkServlet 'dispatcher': initialization completed in 365 ms
+{INFO } [2013-07-09 18:36:44,674] <org.mortbay.log> : Started SelectChannelConnector@127.0.0.1:7070
+{DEBUG} [2013-07-09 18:36:44,674] <org.androidpn.server.container.AdminConsole> : Admin console started.
+{INFO } [2013-07-09 18:36:44,674] <org.androidpn.server.xmpp.XmppServer> : Admin console listening at http://127.0.0.1:7070
+{INFO } [2013-07-09 18:36:44,675] <org.androidpn.server.xmpp.XmppServer> : XmppServer started: 127.0.0.1
+{INFO } [2013-07-09 18:36:44,675] <org.androidpn.server.xmpp.XmppServer> : Androidpn Server v0.5.0
+{DEBUG} [2013-07-09 18:47:37,225] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:47:37,227] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:47:53,703] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:47:53,703] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:51:11,740] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:11,740] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:51:27,372] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:27,372] <org.androidpn.server.xmpp.push.NotificationManager> : sendNotifcationToUser()...
+{DEBUG} [2013-07-09 18:51:30,437] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:30,438] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:51:31,790] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:31,791] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:51:32,444] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:32,447] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:51:33,074] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:33,074] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:51:34,860] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:34,860] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:51:35,700] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:51:35,700] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:54:47,766] <org.androidpn.server.xmpp.net.XmppIoHandler> : sessionCreated()...
+{DEBUG} [2013-07-09 18:54:47,769] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event SESSION_OPENED to session 2
+Queue : [SESSION_OPENED, ]
+
+{DEBUG} [2013-07-09 18:54:47,772] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a SESSION_OPENED event for session 2
+{DEBUG} [2013-07-09 18:54:47,773] <org.androidpn.server.xmpp.net.XmppIoHandler> : sessionOpened()...
+{DEBUG} [2013-07-09 18:54:47,774] <org.androidpn.server.xmpp.net.XmppIoHandler> : remoteAddress=/127.0.0.1:13161
+{DEBUG} [2013-07-09 18:54:47,814] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:47,951] <org.apache.mina.core.filterchain.IoFilterEvent> : Event SESSION_OPENED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:47,951] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:47,951] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:47,962] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:47,963] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <stream:stream to="10.0.2.2" xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" version="1.0">
+{DEBUG} [2013-07-09 18:54:47,965] <org.androidpn.server.xmpp.session.ClientSession> : createSession()...
+{DEBUG} [2013-07-09 18:54:47,967] <org.androidpn.server.xmpp.session.SessionManager> : ClientSession created.
+{DEBUG} [2013-07-09 18:54:47,967] <org.androidpn.server.xmpp.net.Connection> : SENT: <?xml version='1.0' encoding='UTF-8'?><stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="127.0.0.1" id="ba7e01e" xml:lang="en" version="1.0">
+{DEBUG} [2013-07-09 18:54:47,969] <org.androidpn.server.xmpp.net.Connection> : SENT: <stream:features><starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"></starttls><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+{DEBUG} [2013-07-09 18:54:47,969] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:47,971] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:54:47,971] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, , MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:54:47,972] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:54:47,974] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:54:47,975] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:54:47,975] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:54:47,975] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:54:47,976] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:54:47,985] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:47,985] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:47,985] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:47,986] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:47,986] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <starttls xmlns="urn:ietf:params:xml:ns:xmpp-tls"/>
+{DEBUG} [2013-07-09 18:54:47,987] <org.androidpn.server.xmpp.net.Connection> : startTLS()...
+{DEBUG} [2013-07-09 18:54:47,989] <org.androidpn.server.xmpp.ssl.SSLConfig> : keyStoreLocation=F:\恒拓开源\项目相关\XMPP推送\androidpn-server-0.5.0-bin\androidpn-server-0.5.0\conf/security/keystore
+{DEBUG} [2013-07-09 18:54:47,989] <org.androidpn.server.xmpp.ssl.SSLConfig> : trustStoreLocation=F:\恒拓开源\项目相关\XMPP推送\androidpn-server-0.5.0-bin\androidpn-server-0.5.0\conf/security/truststore
+{DEBUG} [2013-07-09 18:54:49,779] <org.androidpn.server.xmpp.net.Connection> : SENT: <proceed xmlns="urn:ietf:params:xml:ns:xmpp-tls"/>
+{DEBUG} [2013-07-09 18:54:49,779] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:50,478] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:50,478] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:50,479] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:50,480] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:50,480] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <stream:stream to="127.0.0.1" xmlns="jabber:client" xmlns:stream="http://etherx.jabber.org/streams" version="1.0">
+{DEBUG} [2013-07-09 18:54:50,482] <org.androidpn.server.xmpp.net.Connection> : SENT: <?xml version='1.0' encoding='UTF-8'?><stream:stream xmlns:stream="http://etherx.jabber.org/streams" xmlns="jabber:client" from="127.0.0.1" id="ba7e01e" xml:lang="en" version="1.0"><stream:features><auth xmlns="http://jabber.org/features/iq-auth"/><register xmlns="http://jabber.org/features/iq-register"/></stream:features>
+{DEBUG} [2013-07-09 18:54:50,483] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:50,484] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:54:50,484] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:54:50,484] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:54:50,484] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:54:50,605] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:50,606] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:50,606] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:50,606] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:50,606] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <iq id="7QpfT-0" type="set"><query xmlns="jabber:iq:register"><password>421d2a4fc2684ab3a57176c5d52f55a7</password><username>040e8af24e354f12b8ab4c591fa2badf</username></query></iq>
+{DEBUG} [2013-07-09 18:54:50,607] <org.androidpn.server.xmpp.net.StanzaHandler> : iq...
+{DEBUG} [2013-07-09 18:54:50,607] <org.androidpn.server.xmpp.net.StanzaHandler> : processIQ()...
+{DEBUG} [2013-07-09 18:54:50,886] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="result" id="7QpfT-0" to="127.0.0.1/ba7e01e"/>
+{DEBUG} [2013-07-09 18:54:50,920] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:50,920] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:54:50,920] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:54:50,920] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:54:50,921] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:54:51,064] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:51,064] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:51,065] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:51,065] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:51,065] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <iq id="7QpfT-1" type="get"><query xmlns="jabber:iq:auth"><username>040e8af24e354f12b8ab4c591fa2badf</username></query></iq>
+{DEBUG} [2013-07-09 18:54:51,066] <org.androidpn.server.xmpp.net.StanzaHandler> : iq...
+{DEBUG} [2013-07-09 18:54:51,066] <org.androidpn.server.xmpp.net.StanzaHandler> : processIQ()...
+{DEBUG} [2013-07-09 18:54:51,067] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="result" id="7QpfT-1"><query xmlns="jabber:iq:auth"><username>040e8af24e354f12b8ab4c591fa2badf</username><password/><digest/><resource/></query></iq>
+{DEBUG} [2013-07-09 18:54:51,068] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:54:51,068] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:51,069] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:54:51,069] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:54:51,069] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:54:51,082] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:51,083] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:51,083] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:51,083] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:51,083] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <iq id="7QpfT-2" type="set"><query xmlns="jabber:iq:auth"><username>040e8af24e354f12b8ab4c591fa2badf</username><digest>23c29f64497543ec063dae8b84a22f0384a70593</digest><resource>AndroidpnClient</resource></query></iq>
+{DEBUG} [2013-07-09 18:54:51,084] <org.androidpn.server.xmpp.net.StanzaHandler> : iq...
+{DEBUG} [2013-07-09 18:54:51,084] <org.androidpn.server.xmpp.net.StanzaHandler> : processIQ()...
+{DEBUG} [2013-07-09 18:54:51,143] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="result" id="7QpfT-2" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"/>
+{DEBUG} [2013-07-09 18:54:51,144] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:51,144] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:54:51,144] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:54:51,144] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:54:51,144] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:54:51,229] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:51,232] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:51,232] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:51,233] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:51,233] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <iq id="7QpfT-3" type="get"><query xmlns="jabber:iq:roster" ></query></iq>
+{DEBUG} [2013-07-09 18:54:51,234] <org.androidpn.server.xmpp.net.StanzaHandler> : iq...
+{DEBUG} [2013-07-09 18:54:51,235] <org.androidpn.server.xmpp.net.StanzaHandler> : processIQ()...
+{DEBUG} [2013-07-09 18:54:51,236] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:54:51,240] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:54:51,240] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:54:51,241] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:54:51,242] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageReceived()...
+{DEBUG} [2013-07-09 18:54:51,242] <org.androidpn.server.xmpp.net.XmppIoHandler> : RCVD: <presence id="7QpfT-4"></presence>
+{DEBUG} [2013-07-09 18:54:51,242] <org.androidpn.server.xmpp.net.StanzaHandler> : presence...
+{DEBUG} [2013-07-09 18:54:51,243] <org.androidpn.server.xmpp.net.StanzaHandler> : processPresence()...
+{DEBUG} [2013-07-09 18:54:51,243] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:55:35,622] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:55:35,623] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:55:35,623] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:55:35,624] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:56:05,693] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:56:05,694] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:56:05,694] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:56:05,695] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:56:35,696] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:56:35,745] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:56:35,745] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:56:35,745] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:57:05,730] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:57:05,731] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:57:05,731] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:57:05,732] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:57:35,806] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:57:35,807] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:57:35,807] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:57:35,807] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:57:38,924] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:57:38,924] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:57:38,925] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="set" id="450-10" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"><notification xmlns="androidpn:iq:notification"><id>29647b30</id><apiKey>1234567890</apiKey><title>你妈的哎</title><message>这是马爷发的推送！！！哈哈。。。</message><uri></uri></notification></iq>
+{DEBUG} [2013-07-09 18:57:38,926] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:57:38,926] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:57:38,926] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:57:38,927] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:57:53,143] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:57:53,143] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:57:53,143] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="set" id="0-11" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"><notification xmlns="androidpn:iq:notification"><id>effea76</id><apiKey>1234567890</apiKey><title>Dokdo Island</title><message>Dokdo is a Korean island, the far east of the Korean territory. No doubt! No question! Don't mention it any more!</message><uri></uri></notification></iq>
+{DEBUG} [2013-07-09 18:57:53,145] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:57:53,185] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:57:53,186] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:57:53,193] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:57:56,028] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:57:56,029] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:57:56,032] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="set" id="731-12" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"><notification xmlns="androidpn:iq:notification"><id>68cf41dc</id><apiKey>1234567890</apiKey><title>Dokdo Island</title><message>Dokdo is a Korean island, the far east of the Korean territory. No doubt! No question! Don't mention it any more!</message><uri></uri></notification></iq>
+{DEBUG} [2013-07-09 18:57:56,034] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:57:56,037] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:57:56,038] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:57:56,038] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:57:57,571] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:57:57,571] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:57:57,572] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="set" id="981-13" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"><notification xmlns="androidpn:iq:notification"><id>f32fdb81</id><apiKey>1234567890</apiKey><title>Dokdo Island</title><message>Dokdo is a Korean island, the far east of the Korean territory. No doubt! No question! Don't mention it any more!</message><uri></uri></notification></iq>
+{DEBUG} [2013-07-09 18:57:57,574] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:57:57,579] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:57:57,580] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:57:57,580] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:57:59,054] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:57:59,054] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:57:59,054] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="set" id="845-14" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"><notification xmlns="androidpn:iq:notification"><id>b6aec65a</id><apiKey>1234567890</apiKey><title>Dokdo Island</title><message>Dokdo is a Korean island, the far east of the Korean territory. No doubt! No question! Don't mention it any more!</message><uri></uri></notification></iq>
+{DEBUG} [2013-07-09 18:57:59,056] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:57:59,057] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:57:59,059] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:57:59,059] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:58:00,554] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:58:00,554] <org.androidpn.server.xmpp.push.NotificationManager> : sendBroadcast()...
+{DEBUG} [2013-07-09 18:58:00,555] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="set" id="671-15" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"><notification xmlns="androidpn:iq:notification"><id>c4468865</id><apiKey>1234567890</apiKey><title>Dokdo Island</title><message>Dokdo is a Korean island, the far east of the Korean territory. No doubt! No question! Don't mention it any more!</message><uri></uri></notification></iq>
+{DEBUG} [2013-07-09 18:58:00,556] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:58:00,559] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:58:00,560] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:58:00,560] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:58:05,868] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:58:05,868] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:58:05,872] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:58:05,872] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:58:35,886] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:58:35,888] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:58:35,889] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:58:35,889] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:58:49,300] <org.androidpn.server.console.controller.NotificationController> : apiKey=1234567890
+{DEBUG} [2013-07-09 18:58:49,301] <org.androidpn.server.xmpp.push.NotificationManager> : sendNotifcationToUser()...
+{DEBUG} [2013-07-09 18:58:49,301] <org.androidpn.server.xmpp.net.Connection> : SENT: <iq type="set" id="81-16" to="040e8af24e354f12b8ab4c591fa2badf@127.0.0.1/AndroidpnClient"><notification xmlns="androidpn:iq:notification"><id>66b114e2</id><apiKey>1234567890</apiKey><title>What The Fucking Day !!!</title><message>Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck Fuck </message><uri></uri></notification></iq>
+{DEBUG} [2013-07-09 18:58:49,302] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_SENT to session 2
+Queue : [MESSAGE_SENT, ]
+
+{DEBUG} [2013-07-09 18:58:49,304] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_SENT event for session 2
+{DEBUG} [2013-07-09 18:58:49,324] <org.androidpn.server.xmpp.net.XmppIoHandler> : messageSent()...
+{DEBUG} [2013-07-09 18:58:49,324] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_SENT has been fired for session 2
+{DEBUG} [2013-07-09 18:59:05,897] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:59:05,898] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:59:05,898] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:59:05,899] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 18:59:35,936] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 18:59:35,937] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 18:59:35,938] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 18:59:35,938] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:00:05,995] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:00:05,998] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:00:05,998] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:00:05,999] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:00:36,035] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:00:36,036] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:00:36,037] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:00:36,037] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:01:06,065] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:01:06,066] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:01:06,066] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:01:06,066] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:01:36,079] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:01:36,080] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:01:36,081] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:01:36,081] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:02:06,131] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:02:06,132] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:02:06,133] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:02:06,133] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:02:36,144] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:02:36,145] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:02:36,145] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:02:36,145] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:03:06,156] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:03:06,157] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:03:06,157] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:03:06,158] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:03:36,187] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:03:36,189] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:03:36,189] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:03:36,189] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:04:06,234] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:04:06,235] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:04:06,236] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:04:06,236] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:04:36,243] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:04:36,244] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:04:36,244] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:04:36,244] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:05:06,309] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:05:06,310] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:05:06,310] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:05:06,310] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:05:36,357] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:05:36,358] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:05:36,359] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:05:36,360] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:06:06,428] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:06:06,429] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:06:06,430] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:06:06,430] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:06:36,473] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:06:36,474] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:06:36,474] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:06:36,475] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:07:06,515] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:07:06,516] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:07:06,516] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:07:06,517] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:07:36,556] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:07:36,557] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:07:36,557] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:07:36,558] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:08:06,600] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:08:06,601] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:08:06,602] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:08:06,602] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:08:36,629] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:08:36,630] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:08:36,630] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:08:36,630] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:09:06,676] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:09:06,676] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:09:06,677] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:09:06,677] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:09:36,732] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:09:36,734] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:09:36,734] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:09:36,734] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:10:06,763] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:10:06,765] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:10:06,765] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:10:06,765] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:10:36,834] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:10:36,835] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:10:36,836] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:10:36,836] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:11:06,840] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:11:06,842] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:11:06,842] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:11:06,842] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:11:36,877] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:11:36,879] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:11:36,880] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:11:36,880] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:12:06,936] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:12:06,937] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:12:06,937] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:12:06,938] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:12:36,989] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:12:36,990] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:12:36,991] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:12:36,992] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:13:07,052] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:13:07,054] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:13:07,054] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:13:07,054] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:13:37,085] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:13:37,086] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:13:37,087] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:13:37,087] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:14:07,134] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:14:07,135] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:14:07,135] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:14:07,136] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:14:37,161] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:14:37,162] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:14:37,163] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:14:37,163] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:15:07,219] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:15:07,221] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:15:07,221] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:15:07,222] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:15:37,282] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:15:37,284] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:15:37,284] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:15:37,285] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:16:07,297] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:16:07,298] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:16:07,299] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:16:07,299] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:16:37,321] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:16:37,322] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:16:37,323] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:16:37,324] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:17:07,325] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:17:07,326] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:17:07,327] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:17:07,327] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:17:37,349] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:17:37,401] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:17:37,401] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:17:37,401] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:18:07,384] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:18:07,384] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:18:07,385] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:18:07,385] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:18:37,415] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:18:37,416] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:18:37,416] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:18:37,417] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:19:07,459] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:19:07,460] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:19:07,461] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:19:07,461] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:19:37,475] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:19:37,476] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:19:37,477] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:19:37,477] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:20:07,509] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:20:07,510] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:20:07,510] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:20:07,511] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:20:37,570] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:20:37,572] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:20:37,572] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:20:37,573] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:21:07,606] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:21:07,607] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:21:07,607] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:21:07,607] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:21:37,634] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:21:37,635] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:21:37,635] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:21:37,635] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:22:07,703] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:22:07,705] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:22:07,705] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:22:07,705] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:22:37,731] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:22:37,732] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:22:37,732] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:22:37,732] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:23:07,753] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:23:07,754] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:23:07,755] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:23:07,755] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:23:37,787] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:23:37,789] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:23:37,789] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:23:37,790] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:24:07,808] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:24:07,809] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:24:07,809] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:24:07,810] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:24:37,833] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:24:37,834] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:24:37,834] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:24:37,834] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:25:07,856] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:25:07,857] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:25:07,858] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:25:07,858] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:25:37,916] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:25:37,918] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:25:37,918] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:25:37,919] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:26:07,957] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:26:07,959] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:26:07,960] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:26:07,960] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:26:38,020] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:26:38,022] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:26:38,022] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:26:38,022] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:27:08,048] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:27:08,051] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:27:08,051] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:27:08,052] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:27:38,083] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:27:38,084] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:27:38,085] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:27:38,085] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:28:08,122] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:28:08,123] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:28:08,123] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:28:08,124] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:28:38,153] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:28:38,155] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:28:38,156] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:28:38,156] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:29:08,193] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:29:08,195] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:29:08,195] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:29:08,195] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:29:38,217] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:29:38,218] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:29:38,219] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:29:38,219] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:30:08,277] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:30:08,278] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:30:08,278] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:30:08,279] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
+{DEBUG} [2013-07-09 19:30:38,337] <org.apache.mina.filter.executor.OrderedThreadPoolExecutor> : Adding event MESSAGE_RECEIVED to session 2
+Queue : [MESSAGE_RECEIVED, ]
+
+{DEBUG} [2013-07-09 19:30:38,339] <org.apache.mina.core.filterchain.IoFilterEvent> : Firing a MESSAGE_RECEIVED event for session 2
+{DEBUG} [2013-07-09 19:30:38,339] <org.apache.mina.filter.codec.ProtocolCodecFilter> : Processing a MESSAGE_RECEIVED for session 2
+{DEBUG} [2013-07-09 19:30:38,339] <org.apache.mina.core.filterchain.IoFilterEvent> : Event MESSAGE_RECEIVED has been fired for session 2
