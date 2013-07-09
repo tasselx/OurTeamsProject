@@ -76,6 +76,10 @@
 
 * 最火的下拉刷新（同样的，通吃 上拉、下拉、左拉、右拉刷新列表！！！）
 
+* Android Indicator 索引页的实现
+
+* Android Asmack Openfire XMPP协议实现的推送DEMO
+
 
 注意：Library路径下的项目会不定期添加更新，大家可自行下载使用、仅删除本地的，不要勿删master分支哦！
 
