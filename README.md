@@ -55,7 +55,7 @@
 ![XiaoMaGuo](https://raw.github.com/xiaomaguoguo/XiaoMaFrame/master/res/drawable-mdpi/xiaoma.jpg "酷_莫名简单、小马果，一个很幸福的坏人！！！")
 
 
-###想点击某个图片进入一个网页,比如我想点击github的icorn然后再进入www.github.com
+### 果断猛戳该图片，跳转我的博客，批评指点！！！
 [![image]](http://mzh3344258.blog.51cto.com/)
 [image]: https://raw.github.com/xiaomaguoguo/XiaoMaFrame/master/res/drawable-mdpi/xiaoma.jpg "github"
 
