@@ -7,5 +7,11 @@
     <string name="pull_to_refresh_pull_label">下拉可以刷新</string>
     <string name="pull_to_refresh_release_label">松开可以刷新</string>
     <string name="pull_to_refresh_refreshing_label">加载中...</string>
+    <string name="exit_prompt">是否退出 ?</string>
+    <string name="make_sure">确定</string>
+    <string name="cancel">取消</string>
+     <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="click_to_main_page">点击开始旅途吧 ^_^</string>
 
 </resources>

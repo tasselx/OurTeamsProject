@@ -103,7 +103,7 @@ public class FrameApplication extends Application
     public void initPreferences()
     {
         mGlobalPrefs = PreferenceManager.getDefaultSharedPreferences(this);
-        getOwnPreferences("TestOwnPreferences");
+        getOwnPreferences("sharedpreferences");
     }
     
     public SharedPreferences getOwnPreferences(String name)
