@@ -10,8 +10,6 @@
  */
 package com.xiaoma.frame;
 
-import java.io.File;
-
 import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
@@ -21,13 +19,13 @@ import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
-import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 
 import com.xiaoma.frame.utils.AppException;
 import com.xiaoma.frame.utils.Utils;
+import com.xiaoma.frame.utils.sdcard.SDCardCtrl;
 
 /**
  * @TODO [The class invoke when the app start ]
@@ -39,14 +37,6 @@ public class FrameApplication extends Application
 {
     
     private String TAG = "Frame Application ";
-    
-    public static String ROOTPATH = "/XiaoMa";
-    
-    public static String DOWNLOADPATH = "/XiaoMaDownload";
-    
-    public static String DATABASEPATH = "/XiaoMaDatabase";
-    
-    public static String ERRORLOGPATH = "/XiaoMaErrorLog";
     
     public static final int NETTYPE_WIFI = 0x01;
     
@@ -77,7 +67,7 @@ public class FrameApplication extends Application
         Thread.setDefaultUncaughtExceptionHandler(AppException.getAppExceptionHandler());
         
         /** init app data file path */
-        initPath();
+        SDCardCtrl.initPath();
         
         /** init app sharepreferences file */
         initPreferences();
@@ -111,63 +101,6 @@ public class FrameApplication extends Application
         Log.i(TAG, "There create a own appoint name SharedPreferences File");
         appointPrefs = getSharedPreferences(name, MODE_PRIVATE);
         return appointPrefs;
-    }
-    
-    /**
-     * <Build data file for this application >
-     */
-    private void initPath()
-    {
-        
-        String ROOT;
-        
-        /* Judge SDCard is or not Insert */
-        if (Environment.getExternalStorageState().equals(android.os.Environment.MEDIA_MOUNTED))
-        {
-            ROOT = Environment.getExternalStorageDirectory().getPath();
-        }
-        else
-        { /* There is no have SD cards */
-            Log.v("MKDIR", "No SD card!!!");
-            ROOT = "/data/data";
-        }
-        
-        if (ROOTPATH.equals("/XiaoMa"))
-        {
-            ROOTPATH = ROOT + ROOTPATH;
-            DOWNLOADPATH = ROOTPATH + DOWNLOADPATH;
-            ERRORLOGPATH = ROOTPATH + ERRORLOGPATH;
-            DATABASEPATH = ROOTPATH + DATABASEPATH;
-        }
-        
-        File rootPath = new File(ROOTPATH);
-        if (!rootPath.exists())
-        {
-            rootPath.mkdirs();
-            Log.d("Init rootPath", "rootPath = " + rootPath);
-        }
-        
-        File downloadPath = new File(DOWNLOADPATH);
-        if (!downloadPath.exists())
-        {
-            downloadPath.mkdirs();
-            Log.d("Init downloadPath", "downloadPath = " + downloadPath);
-        }
-        
-        File errorlogpath = new File(ERRORLOGPATH);
-        if (!errorlogpath.exists())
-        {
-            errorlogpath.mkdirs();
-            Log.d("Init errorlogpath", "errorlogpath = " + ERRORLOGPATH);
-        }
-        
-        File databasePath = new File(DATABASEPATH);
-        if (!databasePath.exists())
-        {
-            databasePath.mkdirs();
-            Log.d("Init databasePath", "databasePath = " + DATABASEPATH);
-        }
-        
     }
     
     /**

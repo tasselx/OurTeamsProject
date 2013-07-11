@@ -1,0 +1,106 @@
+package com.lvguo.ctrlc.utils.network;
+
+import android.content.Context;
+import android.location.Criteria;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
+import android.os.Bundle;
+
+import com.lvguo.ctrlc.config.CtrlCApplication;
+
+/**
+ * @Title: LocationUtil.java
+ * @Package com.lvguo.ctrlc.utils.network
+ * @Description: 位置工具
+ * @author XiaoMa
+ */
+public class LocationUtil implements LocationListener {
+
+	private static final String GPS_PROVIDER = LocationManager.GPS_PROVIDER;
+	private static final String NETWORK_PROVIDER = LocationManager.NETWORK_PROVIDER;
+	private LocationManager locationManager = null;
+	private String strLocationProvider = "getLocal";
+	public static  boolean not_support_local_flag = false ; 
+	public static boolean not_open_network_flag = false ; 
+	public static boolean has_location_data_flag = false ; 
+	
+
+	/*
+	 * 获取用户位置信息
+	 */
+	public void getUserLocation(Context context) {
+
+		locationManager = (LocationManager)context.getSystemService(context.LOCATION_SERVICE);
+		Location location = null;
+		Criteria mCriteria01 = new Criteria();
+		mCriteria01.setAccuracy(Criteria.ACCURACY_FINE);
+		mCriteria01.setAltitudeRequired(false);
+		mCriteria01.setBearingRequired(false);
+		mCriteria01.setCostAllowed(true);
+		// 设置为低电量模式,节省手机电量
+		mCriteria01.setPowerRequirement(Criteria.POWER_LOW);
+		// 让手机自动获取取用户位置的方式 :GPS 或 NetWork
+		strLocationProvider = locationManager
+				.getBestProvider(mCriteria01, true);
+		if (strLocationProvider != null) {
+			if (isEnabled()) {
+				locationManager.requestLocationUpdates(strLocationProvider,
+						1000, 0, this);
+			} else {
+				not_support_local_flag = true;
+				// Toast.makeText(getApplicationContext(),
+				// getString(R.string.device_unsupport_local),
+				// Toast.LENGTH_SHORT).show();
+			}
+		} else {
+			not_open_network_flag = true;
+			// Toast.makeText(getApplicationContext(),
+			// getString(R.string.please_open_network),
+			// Toast.LENGTH_SHORT).show();
+			return;
+		}
+		location = locationManager.getLastKnownLocation(strLocationProvider);
+
+		// 取用户当前的经纬
+
+		if (location != null) {
+			has_location_data_flag = true;
+			CtrlCApplication.userLocation[0] = location.getLatitude();
+			CtrlCApplication.userLocation[1] = location.getLongitude();
+		} else {
+			// Toast.makeText(getApplicationContext(),
+			// getString(R.string.not_get_location), Toast.LENGTH_SHORT).show();
+		}
+	}
+	
+	
+	
+	/**
+	    * 检查设备是否支持定位
+	    * @return true 是  false 否
+	    */
+	   public Boolean isEnabled() {
+			
+			if(GPS_PROVIDER!=null || NETWORK_PROVIDER != null){
+		         return true;		
+			}
+			else{
+				 return false;
+			}
+		}
+
+	public void onLocationChanged(Location location) {
+		if (location != null) {
+			has_location_data_flag = true;
+			CtrlCApplication.userLocation[0] = location.getLatitude();
+			CtrlCApplication.userLocation[1] = location.getLongitude();
+		} 
+	}
+	public void onProviderDisabled(String provider) {
+	}
+	public void onProviderEnabled(String provider) {
+	}
+	public void onStatusChanged(String provider, int status, Bundle extras) {
+	}
+}

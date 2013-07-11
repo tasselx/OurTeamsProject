@@ -23,7 +23,7 @@ import android.os.Environment;
 import android.os.Looper;
 
 import com.xiaoma.frame.ApplicationManager;
-import com.xiaoma.frame.FrameApplication;
+import com.xiaoma.frame.utils.sdcard.SDCardCtrl;
 
 /**
  * @TODO [The class manager exception message ]
@@ -32,235 +32,286 @@ import com.xiaoma.frame.FrameApplication;
  * @since [Product/module]
  */
 @SuppressWarnings("serial")
-public class AppException extends Exception implements UncaughtExceptionHandler {
-
-	private final static boolean Debug = false;
-
-	public final static byte TYPE_NETWORK = 0x01;
-	public final static byte TYPE_SOCKET = 0x02;
-	public final static byte TYPE_HTTP_CODE = 0x03;
-	public final static byte TYPE_HTTP_ERROR = 0x04;
-	public final static byte TYPE_XML = 0x05;
-	public final static byte TYPE_IO = 0x06;
-	public final static byte TYPE_RUN = 0x07;
-
-	private byte type;
-	private int code;
-
-	private Thread.UncaughtExceptionHandler mDefaultHandler;
-
-	private AppException() {
-		this.mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
-	}
-
-	private AppException(byte type, int code, Exception excp) {
-		super(excp);
-		this.type = type;
-		this.code = code;
-		if (Debug) {
-			this.saveErrorLog(excp);
-		}
-	}
-
-	public int getCode() {
-		return this.code;
-	}
-
-	public int getType() {
-		return this.type;
-	}
-
-	public void saveErrorLog(Exception excp) {
-		String errorlog = "errorlog.txt";
-		String savePath = "";
-		String logFilePath = "";
-		FileWriter fw = null;
-		PrintWriter pw = null;
-		try {
-			String storageState = Environment.getExternalStorageState();
-			if (storageState.equals(Environment.MEDIA_MOUNTED)) {
-				savePath = Environment.getExternalStorageDirectory()
-						.getAbsolutePath() + FrameApplication.ERRORLOGPATH;
-				File file = new File(savePath);
-				if (!file.exists()) {
-					file.mkdirs();
-				}
-				logFilePath = savePath + errorlog;
-			}
-			if (logFilePath == "") {
-				return;
-			}
-			File logFile = new File(logFilePath);
-			if (!logFile.exists()) {
-				logFile.createNewFile();
-			}
-			fw = new FileWriter(logFile, true);
-			pw = new PrintWriter(fw);
-			pw.println("--------------------" + (new Date().toLocaleString())
-					+ "---------------------");
-			excp.printStackTrace(pw);
-			pw.close();
-			fw.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (pw != null) {
-				pw.close();
-			}
-			if (fw != null) {
-				try {
-					fw.close();
-				} catch (IOException e) {
-				}
-			}
-		}
-
-	}
-
-	public static AppException http(int code) {
-		return new AppException(TYPE_HTTP_CODE, code, null);
-	}
-
-	public static AppException http(Exception e) {
-		return new AppException(TYPE_HTTP_ERROR, 0, e);
-	}
-
-	public static AppException socket(Exception e) {
-		return new AppException(TYPE_SOCKET, 0, e);
-	}
-
-	public static AppException io(Exception e) {
-		if (e instanceof UnknownHostException || e instanceof ConnectException) {
-			return new AppException(TYPE_NETWORK, 0, e);
-		} else if (e instanceof IOException) {
-			return new AppException(TYPE_IO, 0, e);
-		}
-		return run(e);
-	}
-
-	public static AppException xml(Exception e) {
-		return new AppException(TYPE_XML, 0, e);
-	}
-
-	public static AppException network(Exception e) {
-		if (e instanceof UnknownHostException || e instanceof ConnectException) {
-			return new AppException(TYPE_NETWORK, 0, e);
-		} else if (e instanceof HttpException) {
-			return http(e);
-		} else if (e instanceof SocketException) {
-			return socket(e);
-		}
-		return http(e);
-	}
-
-	public static AppException run(Exception e) {
-		return new AppException(TYPE_RUN, 0, e);
-	}
-
-	public static AppException getAppExceptionHandler() {
-		return new AppException();
-	}
-
-	@Override
-	public void uncaughtException(Thread thread, Throwable ex) {
-
-		if (!handleException(ex) && mDefaultHandler != null) {
-			mDefaultHandler.uncaughtException(thread, ex);
-		}
-
-	}
-
-	private boolean handleException(Throwable ex) {
-		if (ex == null) {
-			return false;
-		}
-
-		final Context context = ApplicationManager.getAppManager()
-				.currentActivity();
-
-		if (context == null) {
-			return false;
-		}
-
-		final String errorReport = getErrorReport(context, ex);
-		new Thread() {
-			public void run() {
-				Looper.prepare();
-				sendAppErrorReport(context, errorReport);
-				Looper.loop();
-			}
-
-		}.start();
-		return true;
-	}
-
-	/**
-	 * <Get the error message>
-	 * 
-	 * @param context
-	 * @param ex
-	 * @return
-	 */
-	private String getErrorReport(Context context, Throwable ex) {
-		StringBuffer exceptionStr = new StringBuffer();
-		try {
-			String packageName = context.getPackageName();
-			PackageManager pm = context.getPackageManager();
-			PackageInfo packInfo;
-			packInfo = pm.getPackageInfo(packageName, 0);
-			exceptionStr.append("Version: " + packInfo.versionName + "("
-					+ packInfo.versionCode + ")\n");
-			exceptionStr.append("Android: " + android.os.Build.VERSION.RELEASE
-					+ "(" + android.os.Build.MODEL + ")\n");
-			exceptionStr.append("Exception: " + ex.getMessage() + "\n");
-			StackTraceElement[] elements = ex.getStackTrace();
-			for (int i = 0; i < elements.length; i++) {
-				exceptionStr.append(elements[i].toString() + "\n");
-			}
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-		}
-		return exceptionStr.toString();
-	}
-
-	/**
-	 * <Send the error message to application server or appoint to E-mail>
-	 * 
-	 * @param cont
-	 * @param ErrorReport
-	 */
-	public static void sendAppErrorReport(final Context cont,
-			final String ErrorReport) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(cont);
-		builder.setIcon(android.R.drawable.ic_dialog_info);
-		builder.setTitle("App Error Message");
-		builder.setMessage("Error Message");
-		builder.setPositiveButton("Submit Report",
-				new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int which) {
-						dialog.dismiss();
-						// 发送异常报告
-						Intent i = new Intent(Intent.ACTION_SEND);
-						// i.setType("text/plain"); //模拟器
-						i.setType("message/rfc822"); // 真机
-						i.putExtra(Intent.EXTRA_EMAIL,
-								new String[] { "mzh3344258@163.com" });
-						i.putExtra(Intent.EXTRA_SUBJECT,
-								"XiaoMa App Error Message Report");
-						i.putExtra(Intent.EXTRA_TEXT, ErrorReport);
-						cont.startActivity(Intent.createChooser(i,
-								"Send Report"));
-						// exit
-						ApplicationManager.getAppManager().AppExit(cont);
-					}
-				});
-		builder.setNegativeButton("Yes", new DialogInterface.OnClickListener() {
-			public void onClick(DialogInterface dialog, int which) {
-				dialog.dismiss();
-				// exit
-				ApplicationManager.getAppManager().AppExit(cont);
-			}
-		});
-		builder.show();
-	}
+public class AppException extends Exception implements UncaughtExceptionHandler
+{
+    
+    private final static boolean Debug = false;
+    
+    public final static byte TYPE_NETWORK = 0x01;
+    
+    public final static byte TYPE_SOCKET = 0x02;
+    
+    public final static byte TYPE_HTTP_CODE = 0x03;
+    
+    public final static byte TYPE_HTTP_ERROR = 0x04;
+    
+    public final static byte TYPE_XML = 0x05;
+    
+    public final static byte TYPE_IO = 0x06;
+    
+    public final static byte TYPE_RUN = 0x07;
+    
+    private byte type;
+    
+    private int code;
+    
+    private Thread.UncaughtExceptionHandler mDefaultHandler;
+    
+    private AppException()
+    {
+        this.mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
+    }
+    
+    private AppException(byte type, int code, Exception excp)
+    {
+        super(excp);
+        this.type = type;
+        this.code = code;
+        if (Debug)
+        {
+            this.saveErrorLog(excp);
+        }
+    }
+    
+    public int getCode()
+    {
+        return this.code;
+    }
+    
+    public int getType()
+    {
+        return this.type;
+    }
+    
+    public void saveErrorLog(Exception excp)
+    {
+        String errorlog = "errorlog.txt";
+        String savePath = "";
+        String logFilePath = "";
+        FileWriter fw = null;
+        PrintWriter pw = null;
+        try
+        {
+            String storageState = Environment.getExternalStorageState();
+            if (storageState.equals(Environment.MEDIA_MOUNTED))
+            {
+                savePath = Environment.getExternalStorageDirectory().getAbsolutePath() + SDCardCtrl.ERRORLOGPATH;
+                File file = new File(savePath);
+                if (!file.exists())
+                {
+                    file.mkdirs();
+                }
+                logFilePath = savePath + errorlog;
+            }
+            if (logFilePath == "")
+            {
+                return;
+            }
+            File logFile = new File(logFilePath);
+            if (!logFile.exists())
+            {
+                logFile.createNewFile();
+            }
+            fw = new FileWriter(logFile, true);
+            pw = new PrintWriter(fw);
+            pw.println("--------------------" + (new Date().toLocaleString()) + "---------------------");
+            excp.printStackTrace(pw);
+            pw.close();
+            fw.close();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        finally
+        {
+            if (pw != null)
+            {
+                pw.close();
+            }
+            if (fw != null)
+            {
+                try
+                {
+                    fw.close();
+                }
+                catch (IOException e)
+                {
+                }
+            }
+        }
+        
+    }
+    
+    public static AppException http(int code)
+    {
+        return new AppException(TYPE_HTTP_CODE, code, null);
+    }
+    
+    public static AppException http(Exception e)
+    {
+        return new AppException(TYPE_HTTP_ERROR, 0, e);
+    }
+    
+    public static AppException socket(Exception e)
+    {
+        return new AppException(TYPE_SOCKET, 0, e);
+    }
+    
+    public static AppException io(Exception e)
+    {
+        if (e instanceof UnknownHostException || e instanceof ConnectException)
+        {
+            return new AppException(TYPE_NETWORK, 0, e);
+        }
+        else if (e instanceof IOException)
+        {
+            return new AppException(TYPE_IO, 0, e);
+        }
+        return run(e);
+    }
+    
+    public static AppException xml(Exception e)
+    {
+        return new AppException(TYPE_XML, 0, e);
+    }
+    
+    public static AppException network(Exception e)
+    {
+        if (e instanceof UnknownHostException || e instanceof ConnectException)
+        {
+            return new AppException(TYPE_NETWORK, 0, e);
+        }
+        else if (e instanceof HttpException)
+        {
+            return http(e);
+        }
+        else if (e instanceof SocketException)
+        {
+            return socket(e);
+        }
+        return http(e);
+    }
+    
+    public static AppException run(Exception e)
+    {
+        return new AppException(TYPE_RUN, 0, e);
+    }
+    
+    public static AppException getAppExceptionHandler()
+    {
+        return new AppException();
+    }
+    
+    @Override
+    public void uncaughtException(Thread thread, Throwable ex)
+    {
+        
+        if (!handleException(ex) && mDefaultHandler != null)
+        {
+            mDefaultHandler.uncaughtException(thread, ex);
+        }
+        
+    }
+    
+    private boolean handleException(Throwable ex)
+    {
+        if (ex == null)
+        {
+            return false;
+        }
+        
+        final Context context = ApplicationManager.getAppManager().currentActivity();
+        
+        if (context == null)
+        {
+            return false;
+        }
+        
+        final String errorReport = getErrorReport(context, ex);
+        new Thread()
+        {
+            public void run()
+            {
+                Looper.prepare();
+                sendAppErrorReport(context, errorReport);
+                Looper.loop();
+            }
+            
+        }.start();
+        return true;
+    }
+    
+    /**
+     * <Get the error message>
+     * 
+     * @param context
+     * @param ex
+     * @return
+     */
+    private String getErrorReport(Context context, Throwable ex)
+    {
+        StringBuffer exceptionStr = new StringBuffer();
+        try
+        {
+            String packageName = context.getPackageName();
+            PackageManager pm = context.getPackageManager();
+            PackageInfo packInfo;
+            packInfo = pm.getPackageInfo(packageName, 0);
+            exceptionStr.append("Version: " + packInfo.versionName + "(" + packInfo.versionCode + ")\n");
+            exceptionStr.append("Android: " + android.os.Build.VERSION.RELEASE + "(" + android.os.Build.MODEL + ")\n");
+            exceptionStr.append("Exception: " + ex.getMessage() + "\n");
+            StackTraceElement[] elements = ex.getStackTrace();
+            for (int i = 0; i < elements.length; i++)
+            {
+                exceptionStr.append(elements[i].toString() + "\n");
+            }
+        }
+        catch (NameNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        return exceptionStr.toString();
+    }
+    
+    /**
+     * <Send the error message to application server or appoint to E-mail>
+     * 
+     * @param cont
+     * @param ErrorReport
+     */
+    public static void sendAppErrorReport(final Context cont, final String ErrorReport)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(cont);
+        builder.setIcon(android.R.drawable.ic_dialog_info);
+        builder.setTitle("App Error Message");
+        builder.setMessage("Error Message");
+        builder.setPositiveButton("Submit Report", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+                // 发送异常报告
+                Intent i = new Intent(Intent.ACTION_SEND);
+                // i.setType("text/plain"); //模拟器
+                i.setType("message/rfc822"); // 真机
+                i.putExtra(Intent.EXTRA_EMAIL, new String[] {"mzh3344258@163.com"});
+                i.putExtra(Intent.EXTRA_SUBJECT, "XiaoMa App Error Message Report");
+                i.putExtra(Intent.EXTRA_TEXT, ErrorReport);
+                cont.startActivity(Intent.createChooser(i, "Send Report"));
+                // exit
+                ApplicationManager.getAppManager().AppExit(cont);
+            }
+        });
+        builder.setNegativeButton("Yes", new DialogInterface.OnClickListener()
+        {
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.dismiss();
+                // exit
+                ApplicationManager.getAppManager().AppExit(cont);
+            }
+        });
+        builder.show();
+    }
 }

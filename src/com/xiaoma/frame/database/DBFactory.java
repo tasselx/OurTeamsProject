@@ -17,8 +17,8 @@ import java.io.InputStream;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.xiaoma.frame.FrameApplication;
 import com.xiaoma.frame.R;
+import com.xiaoma.frame.utils.sdcard.SDCardCtrl;
 
 /**
  * @TODO [The Class File Description]
@@ -68,7 +68,7 @@ public class DBFactory
     {
         try
         {
-            File dir = new File(FrameApplication.DATABASEPATH);
+            File dir = new File(SDCardCtrl.DATABASEPATH);
             File dbFile = new File(dir.getAbsolutePath() + "/" + DATABASE_NAME);
             File oldFile = new File(dir.getAbsolutePath() + "/" + OLD_DATABASE_NAME);
             if (!dir.exists())

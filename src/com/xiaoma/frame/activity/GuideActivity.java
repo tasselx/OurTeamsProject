@@ -12,6 +12,7 @@ package com.xiaoma.frame.activity;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.KeyEvent;
 
 import com.viewpagerindicator.CirclePageIndicator;
@@ -44,6 +45,7 @@ public class GuideActivity extends BaseActivity
         super.onCreate(savedInstanceState);
         
         setContentView(R.layout.guide_activity);
+        
         GuidePagerAdapter mAdapter = new GuidePagerAdapter(this);
         mPager = (ViewPager)findViewById(R.id.pager);
         mPager.setAdapter(mAdapter);
@@ -64,5 +66,16 @@ public class GuideActivity extends BaseActivity
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
         return super.onKeyDown(keyCode, event);
+    }
+    
+    /**
+     * Overriding methods
+     */
+    @Override
+    protected void onDestroy()
+    {
+        // TODO Auto-generated method stub
+        super.onDestroy();
+        Log.i("KKK", "onDestroy()");
     }
 }

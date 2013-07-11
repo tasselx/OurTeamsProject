@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6736"
+   name=""
+   committed-date="2012-05-11T02:44:16.736496Z"
+   url="svn://192.168.1.252/CtrlC/src/com/lvguo/ctrlc/utils/sdcard"
+   last-author="mazhihua"
+   kind="dir"
+   uuid="e6e458c2-d0c5-11e0-b4d8-e9856d1c05ef"
+   repos="svn://192.168.1.252"
+   revision="7502"/>
+<entry
+   committed-rev="6736"
+   name="SDCardControlUtil.java"
+   text-time="2012-05-28T03:47:23.751696Z"
+   committed-date="2012-05-11T02:44:16.736496Z"
+   checksum="033eccacf68c44b494035bdb88954bbc"
+   last-author="mazhihua"
+   kind="file"
+   prop-time="2012-05-28T03:47:23.715694Z"/>
+<entry
+   committed-rev="4063"
+   name="Base64Coder.java"
+   text-time="2012-05-28T03:47:23.759696Z"
+   committed-date="2012-04-05T05:49:13.624748Z"
+   checksum="97f5b49772d568d364550c18449b9dc4"
+   last-author="mazhihua"
+   kind="file"
+   prop-time="2012-05-28T03:47:23.724694Z"/>
+<entry
+   committed-rev="4063"
+   name="WriteObjectToFile.java"
+   text-time="2012-05-28T03:47:23.767697Z"
+   committed-date="2012-04-05T05:49:13.624748Z"
+   checksum="3354ebc6588bf0a914293b066e96d777"
+   last-author="mazhihua"
+   kind="file"
+   prop-time="2012-05-28T03:47:23.732695Z"/>
+<entry
+   committed-rev="6736"
+   name="FileUtil.java"
+   text-time="2012-05-28T03:47:23.777697Z"
+   committed-date="2012-05-11T02:44:16.736496Z"
+   checksum="a8946961622887ef41f405e67ce47c8b"
+   last-author="mazhihua"
+   kind="file"
+   prop-time="2012-05-28T03:47:23.740695Z"/>
+</wc-entries>

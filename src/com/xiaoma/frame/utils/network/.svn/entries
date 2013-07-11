@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="6684"
+   name=""
+   committed-date="2012-05-10T12:24:37.777910Z"
+   url="svn://192.168.1.252/CtrlC/src/com/lvguo/ctrlc/utils/network"
+   last-author="mazhihua"
+   kind="dir"
+   uuid="e6e458c2-d0c5-11e0-b4d8-e9856d1c05ef"
+   repos="svn://192.168.1.252"
+   revision="7502"/>
+<entry
+   committed-rev="6684"
+   name="LocationUtil.java"
+   text-time="2012-05-28T03:47:24.035712Z"
+   committed-date="2012-05-10T12:24:37.777910Z"
+   checksum="ecd5f8e4cccdc8a8354754fb12392fc7"
+   last-author="mazhihua"
+   kind="file"
+   prop-time="2012-05-28T03:47:24.019711Z"/>
+<entry
+   committed-rev="4534"
+   name="NetworkStateUtil.java"
+   text-time="2012-05-28T03:47:24.042713Z"
+   committed-date="2012-04-12T08:10:33.368125Z"
+   checksum="d33328eb9b16c448bb4823d3e45b77b0"
+   last-author="mazhihua"
+   kind="file"
+   prop-time="2012-05-28T03:47:24.027712Z"/>
+</wc-entries>
