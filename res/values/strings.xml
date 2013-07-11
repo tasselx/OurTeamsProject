@@ -12,6 +12,8 @@
     <string name="cancel">取消</string>
      <string name="yes">是</string>
     <string name="no">否</string>
-    <string name="click_to_main_page">点击开始旅途吧 ^_^</string>
+    <string name="click_to_main_page">点我开始旅途吧 ^_^</string>
+    <string name="network_disconnected">网络未链接</string>
+    <string name="not_has_network">没有可用网络</string>
 
 </resources>
