@@ -10,8 +10,7 @@ import java.io.OutputStream;
 
 /**
  * @Title: FileUtils.java
- * @Package com.lvguo.frame.sdcard.utils
- * @Description: 文件、文件夹操作类
+ * @Package com.xiaoma.frame.utils.sdcard
  * @author XiaoMa
  */
 public class FileUtil
@@ -21,12 +20,6 @@ public class FileUtil
     {
     }
     
-    /**
-     * @Title: FileUtil.java
-     * @Package com.lvguo.frame.utils.sdcard
-     * @Description: 文件过滤器，筛选指定格式文件
-     * @author XiaoMa
-     */
     class FileFilter implements FilenameFilter
     {
         
@@ -37,7 +30,11 @@ public class FileUtil
         
     }
     
-    // 清空缓存
+    /**
+     * <Delete the files in DOWNLOADPATH>
+     * 
+     * @return
+     */
     public static boolean deleteFiles()
     {
         boolean b = false;
@@ -62,25 +59,12 @@ public class FileUtil
         return b;
     }
     
-    /**
-     * 文件是否存在
-     * 
-     * @param fullPathName 文件路径
-     * @return true（存在） false（不存在）
-     */
     public static boolean isFileExist(String fullPathName)
     {
         File file = new File(fullPathName);
         return file.exists();
     }
     
-    /**
-     * 将流数据写入文件
-     * 
-     * @param fullPathName
-     * @param input
-     * @return
-     */
     public static File writeFromInput(String fullPathName, InputStream input)
     {
         File file = null;
@@ -120,10 +104,10 @@ public class FileUtil
     }
     
     /**
-     * 删除指定文件夹下的文件
+     * <Delete files in the Params File>
      * 
-     * @param file 要删除的文件
-     * @return 成功失败
+     * @param file
+     * @return
      */
     public static boolean deleteInFolder(File file)
     {
@@ -145,10 +129,10 @@ public class FileUtil
     }
     
     /**
-     * 删除单个文件
+     * <Delete the file>
      * 
      * @param file
-     * @return 是否删除成功
+     * @return
      */
     public static boolean deleteFile(File file)
     {
@@ -171,10 +155,10 @@ public class FileUtil
     }
     
     /**
-     * 删除文件夹及其下所有的子文件
+     * <Delete the folder's chind files and it self >
      * 
-     * @param folder 要删除的目标文件夹
-     * @return 删除是否成功
+     * @param folder
+     * @return
      */
     public static boolean deleteFolder(File folder)
     {
@@ -233,11 +217,11 @@ public class FileUtil
     }
     
     /**
-     * 移动文件
+     * <Move file to destination Path>
      * 
-     * @param oldLocation 源文件夹
-     * @param newLocation 目标文件夹
-     * @throws IOException 异常
+     * @param oldLocation
+     * @param file
+     * @throws IOException
      */
     public static void moveFile(File oldLocation, File file)
         throws IOException
@@ -271,7 +255,7 @@ public class FileUtil
                         }
                         fos = new FileOutputStream(fout, false);
                         
-                        byte[] buff = new byte[8192];
+                        byte[] buff = new byte[4096];
                         int readIn;
                         while ((readIn = fis.read(buff, 0, buff.length)) != -1)
                         {

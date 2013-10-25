@@ -34,7 +34,7 @@ public class DBFactory
     private static Context dbContext = null;
     
     /* The Database version* */
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     
     /* The New Database name* */
     public static final String DATABASE_NAME = "xiaomaframe" + DATABASE_VERSION + ".db";

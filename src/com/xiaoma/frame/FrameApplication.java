@@ -10,7 +10,6 @@
  */
 package com.xiaoma.frame;
 
-import android.annotation.SuppressLint;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -18,12 +17,14 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.NetworkInfo.State;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
-import com.xiaoma.frame.utils.AppException;
+import com.xiaoma.frame.utils.FrameException;
 import com.xiaoma.frame.utils.Utils;
 import com.xiaoma.frame.utils.sdcard.SDCardCtrl;
 
@@ -49,22 +50,21 @@ public class FrameApplication extends Application
     public static SharedPreferences appointPrefs;
     
     /**
-     * Invoke this method when this application start
+     * Invoke this method when this app start
      */
-    @SuppressLint("NewApi")
     @Override
     public void onCreate()
     {
         super.onCreate();
         
         /** This step in order to monitoring our app */
-        if (BuildConfig.DEBUG)
+        if (Config.DEBUG)
         {
             Utils.enableStrictMode();
         }
         
         /** register app exception factory */
-        Thread.setDefaultUncaughtExceptionHandler(AppException.getAppExceptionHandler());
+        Thread.setDefaultUncaughtExceptionHandler(FrameException.getAppExceptionHandler());
         
         /** init app data file path */
         SDCardCtrl.initPath();
@@ -82,7 +82,7 @@ public class FrameApplication extends Application
      */
     public void networkConfig()
     {
-        // TODO Auto-generated method stub
+        checkNetWork(this);
         Log.i(TAG, "Current NetworkType = " + getNetworkType());
         Log.i(TAG, "Is isNetworkConnected()  = " + String.valueOf(isNetworkConnected()));
     }
@@ -118,7 +118,7 @@ public class FrameApplication extends Application
     /**
      * Get current network type
      * 
-     * @return 0£ºNot have network 1£ºWIFI 2£ºWAP 3£ºNET
+     * @return 0.Not have network 1.WIFI 2.WAP 3.NET
      */
     public int getNetworkType()
     {
@@ -150,6 +150,29 @@ public class FrameApplication extends Application
             netType = NETTYPE_WIFI;
         }
         return netType;
+    }
+    
+    @SuppressWarnings({"static-access"})
+    public static void checkNetWork(Context context)
+    {
+        ConnectivityManager connectivityManager =
+            (ConnectivityManager)context.getSystemService(context.CONNECTIVITY_SERVICE);
+        NetworkInfo info = connectivityManager.getActiveNetworkInfo();
+        if (info != null)
+        {
+            if (info.getState() == State.CONNECTED)
+            {
+                Log.i("KKK", "The network is connected ! ");
+            }
+            else
+            {
+                Toast.makeText(context, context.getString(R.string.network_disconnected), Toast.LENGTH_SHORT).show();
+            }
+        }
+        else
+        {
+            Toast.makeText(context, context.getString(R.string.not_has_network), Toast.LENGTH_SHORT).show();
+        }
     }
     
     /**

@@ -19,10 +19,11 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
-import android.os.Environment;
 import android.os.Looper;
+import android.util.Log;
 
 import com.xiaoma.frame.ApplicationManager;
+import com.xiaoma.frame.Config;
 import com.xiaoma.frame.utils.sdcard.SDCardCtrl;
 
 /**
@@ -32,10 +33,8 @@ import com.xiaoma.frame.utils.sdcard.SDCardCtrl;
  * @since [Product/module]
  */
 @SuppressWarnings("serial")
-public class AppException extends Exception implements UncaughtExceptionHandler
+public class FrameException extends Exception implements UncaughtExceptionHandler
 {
-    
-    private final static boolean Debug = false;
     
     public final static byte TYPE_NETWORK = 0x01;
     
@@ -57,19 +56,21 @@ public class AppException extends Exception implements UncaughtExceptionHandler
     
     private Thread.UncaughtExceptionHandler mDefaultHandler;
     
-    private AppException()
+    private FrameException()
     {
         this.mDefaultHandler = Thread.getDefaultUncaughtExceptionHandler();
+        Log.i("KKK", " FrameException()");
     }
     
-    private AppException(byte type, int code, Exception excp)
+    private FrameException(byte type, int code, Exception excp)
     {
         super(excp);
+        Log.i("KKK", "FrameException(byte type, int code, Exception excp)");
         this.type = type;
         this.code = code;
-        if (Debug)
+        if (Config.DEBUG)
         {
-            this.saveErrorLog(excp);
+            saveErrorLog(excp);
         }
     }
     
@@ -85,29 +86,26 @@ public class AppException extends Exception implements UncaughtExceptionHandler
     
     public void saveErrorLog(Exception excp)
     {
-        String errorlog = "errorlog.txt";
-        String savePath = "";
-        String logFilePath = "";
+        Log.i("KKK", "saveErrorLog = saveErrorLog");
+        String errorlog = SDCardCtrl.ERROR_LOGFILE_PATH;
         FileWriter fw = null;
         PrintWriter pw = null;
         try
         {
-            String storageState = Environment.getExternalStorageState();
-            if (storageState.equals(Environment.MEDIA_MOUNTED))
+            if (SDCardCtrl.sdCardIsExist())
             {
-                savePath = Environment.getExternalStorageDirectory().getAbsolutePath() + SDCardCtrl.ERRORLOGPATH;
-                File file = new File(savePath);
+                Log.i("KKK", "errorlog = " + errorlog);
+                File file = new File(errorlog);
                 if (!file.exists())
                 {
                     file.mkdirs();
                 }
-                logFilePath = savePath + errorlog;
             }
-            if (logFilePath == "")
+            if (errorlog == "")
             {
                 return;
             }
-            File logFile = new File(logFilePath);
+            File logFile = new File(errorlog);
             if (!logFile.exists())
             {
                 logFile.createNewFile();
@@ -143,44 +141,44 @@ public class AppException extends Exception implements UncaughtExceptionHandler
         
     }
     
-    public static AppException http(int code)
+    public static FrameException http(int code)
     {
-        return new AppException(TYPE_HTTP_CODE, code, null);
+        return new FrameException(TYPE_HTTP_CODE, code, null);
     }
     
-    public static AppException http(Exception e)
+    public static FrameException http(Exception e)
     {
-        return new AppException(TYPE_HTTP_ERROR, 0, e);
+        return new FrameException(TYPE_HTTP_ERROR, 0, e);
     }
     
-    public static AppException socket(Exception e)
+    public static FrameException socket(Exception e)
     {
-        return new AppException(TYPE_SOCKET, 0, e);
+        return new FrameException(TYPE_SOCKET, 0, e);
     }
     
-    public static AppException io(Exception e)
+    public static FrameException io(Exception e)
     {
         if (e instanceof UnknownHostException || e instanceof ConnectException)
         {
-            return new AppException(TYPE_NETWORK, 0, e);
+            return new FrameException(TYPE_NETWORK, 0, e);
         }
         else if (e instanceof IOException)
         {
-            return new AppException(TYPE_IO, 0, e);
+            return new FrameException(TYPE_IO, 0, e);
         }
         return run(e);
     }
     
-    public static AppException xml(Exception e)
+    public static FrameException xml(Exception e)
     {
-        return new AppException(TYPE_XML, 0, e);
+        return new FrameException(TYPE_XML, 0, e);
     }
     
-    public static AppException network(Exception e)
+    public static FrameException network(Exception e)
     {
         if (e instanceof UnknownHostException || e instanceof ConnectException)
         {
-            return new AppException(TYPE_NETWORK, 0, e);
+            return new FrameException(TYPE_NETWORK, 0, e);
         }
         else if (e instanceof HttpException)
         {
@@ -193,14 +191,14 @@ public class AppException extends Exception implements UncaughtExceptionHandler
         return http(e);
     }
     
-    public static AppException run(Exception e)
+    public static FrameException run(Exception e)
     {
-        return new AppException(TYPE_RUN, 0, e);
+        return new FrameException(TYPE_RUN, 0, e);
     }
     
-    public static AppException getAppExceptionHandler()
+    public static FrameException getAppExceptionHandler()
     {
-        return new AppException();
+        return new FrameException();
     }
     
     @Override

@@ -14,6 +14,7 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  * @TODO [The Class File Description]
@@ -60,7 +61,21 @@ public class DBHelper extends SQLiteOpenHelper
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion)
     {
-        
+        db.execSQL("DROP TABLE IF EXISTS " + "frametest");
+        onCreate(db);
+        Log.i("Database", "onUpgrade");
+    }
+    
+    public void updateColumn(SQLiteDatabase db, String oldColumn, String newColumn, String typeColumn)
+    {
+        try
+        {
+            db.execSQL("ALTER TABLE " + " TB_NAME " + " CHANGE " + oldColumn + " " + newColumn + " " + typeColumn);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
     
     public boolean deleteDatabase(Context context)

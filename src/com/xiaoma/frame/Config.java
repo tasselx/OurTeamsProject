@@ -16,6 +16,7 @@ package com.xiaoma.frame;
  * @version [version-code, 2013-5-3]
  * @since [Product/module]
  */
-public class Config {
-
+public class Config
+{
+    public final static boolean DEBUG = true;
 }

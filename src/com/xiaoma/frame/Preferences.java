@@ -12,7 +12,7 @@ import android.content.SharedPreferences.Editor;
 public class Preferences
 {
     
-    /* Is or first launch* */
+    /* Is or not first launch* */
     private static final String IS_FIRST_LAUNCH = "isFirst";
     
     /**

@@ -1,6 +1,7 @@
-#Tue Jul 09 12:03:35 CST 2013
+#Tue Oct 08 18:47:30 CST 2013
 eclipse.preferences.version=1
 encoding//src/com/xiaoma/frame/ApplicationManager.java=UTF-8
 encoding//src/com/xiaoma/frame/activity/BaseActivity.java=UTF-8
 encoding//src/com/xiaoma/frame/activity/LoadingActivity.java=UTF-8
-encoding//src/com/xiaoma/frame/utils/AppException.java=UTF-8
+encoding//src/com/xiaoma/frame/utils/FrameException.java=UTF-8
+encoding/<project>=UTF-8

@@ -12,7 +12,7 @@ import android.view.animation.Animation.AnimationListener;
 import com.xiaoma.frame.FrameApplication;
 import com.xiaoma.frame.Preferences;
 import com.xiaoma.frame.R;
-import com.xiaoma.frame.utils.AppException;
+import com.xiaoma.frame.utils.FrameException;
 
 public class LoadingActivity extends Activity
 {
@@ -36,7 +36,7 @@ public class LoadingActivity extends Activity
                 {
                     redirectTo();
                 }
-                catch (AppException e)
+                catch (FrameException e)
                 {
                     e.printStackTrace();
                 }
@@ -59,7 +59,7 @@ public class LoadingActivity extends Activity
      * <Redirect to main page>
      */
     private void redirectTo()
-        throws AppException
+        throws FrameException
     {
         Intent intent = null;
         SharedPreferences mPrefs = FrameApplication.appointPrefs;

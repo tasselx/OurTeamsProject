@@ -28,15 +28,19 @@ public class SDCardCtrl
     /** ROOTPATH */
     public static String ROOTPATH = "/FramePath";
     
+    /** DATABASEPATH */
     public static String DATABASEPATH = "/FrameDatabase";
     
+    /** ERRORLOGPATH */
     public static String ERRORLOGPATH = "/FrameErrorLog";
+    
+    /** ERROR_LOGFILE_NAME */
+    public static final String ERROR_LOGFILE_PATH = ERRORLOGPATH + "/errorlog.txt";
     
     @SuppressWarnings("unused")
     private static Context context;
     
     /**
-     * 构造取环境
      * 
      * @param context
      */
@@ -47,9 +51,8 @@ public class SDCardCtrl
     }
     
     /**
-     * 获取工程根路径
      * 
-     * @return 工程根路径绝对路径
+     * @return ROOTPATH
      */
     public static String getCtrlCPath()
     {
@@ -57,9 +60,8 @@ public class SDCardCtrl
     }
     
     /**
-     * 获取下载图片路径
      * 
-     * @return 工程下载图片文件夹绝对路径
+     * @return DOWNLOADPATH
      */
     public static String getDownLoadPath()
     {
@@ -67,10 +69,9 @@ public class SDCardCtrl
     }
     
     /**
-     * 获取指定名字的文件夹路径
      * 
-     * @param foldername 要获取文件夹的名字
-     * @return 要获取指定文件夹的绝对路径
+     * @param foldername
+     * @return appoint foldername's folder path
      */
     public static String getPointPath(String foldername)
     {
@@ -90,9 +91,8 @@ public class SDCardCtrl
     }
     
     /**
-     * 检测存储卡是否插入
      * 
-     * @return SD卡是否存在
+     * @return Is or not exist SD card
      */
     public static boolean sdCardIsExist()
     {
@@ -103,9 +103,6 @@ public class SDCardCtrl
         return true;
     }
     
-    /**
-     * 初始化SD卡使用文件路径
-     */
     /**
      * <Build data file for this application >
      */
@@ -121,7 +118,7 @@ public class SDCardCtrl
         }
         else
         { /* There is no have SD cards */
-            Log.v("MKDIR", "No SD card!!!");
+            Log.i(TAG, "There is haven't SD card!!!");
             ROOT = "/data/data";
         }
         
@@ -138,52 +135,46 @@ public class SDCardCtrl
         if (!rootPath.exists())
         {
             rootPath.mkdirs();
-            Log.d("Init rootPath", "rootPath = " + rootPath);
+            Log.i(TAG, "rootPath = " + rootPath);
         }
         
         File downloadPath = new File(DOWNLOADPATH);
         if (!downloadPath.exists())
         {
             downloadPath.mkdirs();
-            Log.d("Init downloadPath", "downloadPath = " + downloadPath);
+            Log.i(TAG, "downloadPath = " + downloadPath);
         }
         
         File errorlogpath = new File(ERRORLOGPATH);
         if (!errorlogpath.exists())
         {
             errorlogpath.mkdirs();
-            Log.d("Init errorlogpath", "errorlogpath = " + ERRORLOGPATH);
+            Log.i(TAG, "errorlogpath = " + ERRORLOGPATH);
         }
         
         File databasePath = new File(DATABASEPATH);
         if (!databasePath.exists())
         {
             databasePath.mkdirs();
-            Log.d("Init databasePath", "databasePath = " + DATABASEPATH);
+            Log.i(TAG, "databasePath = " + DATABASEPATH);
         }
         
     }
     
     /**
-     * 检测存储卡存储空间
+     * Check the SDcard useful space
      * 
-     * @return false(空间不足) true(可使用)
+     * @return
      */
     public static boolean checkSpace()
     {
         String path = Environment.getExternalStorageDirectory().getPath();
         StatFs statFs = new StatFs(path);
-        /** 取得存储块大小 */
         int blockSize = statFs.getBlockSize() / 1024;
-        /** 取得存储块总数 */
         int blockCount = statFs.getBlockCount();
-        /** 取得存储块已使用空间 */
         int usedBlocks = statFs.getAvailableBlocks() / 1024;
-        /** 总存储空间 */
         int totalSpace = blockCount * blockSize / 1024;
-        /** 取得可用存储空间 */
         int avaliableSpace = totalSpace - usedBlocks;
-        /** 当存储空间小于64M时提示不足 */
         if (avaliableSpace < 64)
         {
             return false;
