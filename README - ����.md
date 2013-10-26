@@ -66,7 +66,7 @@
 
 
 
-### 项目Library中包含子项目列表及其概述如下：
+### 项目Library中包含子项目列表如上：
 
 * 经典侧边栏（通吃 上、下、左、右滑动！！！）
 
@@ -79,8 +79,6 @@
 * Android Indicator 索引页的实现
 
 * Android Asmack Openfire XMPP协议实现的推送DEMO
-
-* SlidingMenuLeftRight(一个简便的方式，实现SlidingMenuLeftRight可同时左右滑动的效果)
 
 
 注意：Library路径下的项目会不定期添加更新，大家可自行下载使用、仅删除本地的，不要勿删master分支哦！

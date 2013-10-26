@@ -61,4 +61,16 @@ public class RequestResult
     {
         this.password = password;
     }
+    
+    /**
+     * Overriding methods
+     * 
+     * @return
+     */
+    @Override
+    public String toString()
+    {
+        // TODO Auto-generated method stub
+        return "UserName = " + username + "; Password = " + password;
+    }
 }

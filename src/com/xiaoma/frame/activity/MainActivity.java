@@ -83,9 +83,17 @@ public class MainActivity extends BaseActivity implements RequestCallBack
         Thread thread = new Thread(th);
         // thread.start();
         
+        deleteFile();
+    }
+    
+    /**
+     * <Summary Description>
+     */
+    @SuppressWarnings("static-access")
+    private static void deleteFile()
+    {
         FileUtil fu = new FileUtil();
         fu.deleteFolder(new File(SDCardCtrl.ROOTPATH));
-        
     }
     
     /**
@@ -149,7 +157,7 @@ public class MainActivity extends BaseActivity implements RequestCallBack
         // TODO Auto-generated method stub
         if (rr != null)
         {
-            Log.i("KKK", "UserName = " + rr.getUsername() + " ,Password = " + rr.getPassword());
+            Log.i("KKK", rr.toString());
         }
     }
 }
