@@ -1,0 +1,27 @@
+package com.example.demo;
+
+import com.joyplus.des.JoyplusDes;
+
+import android.os.Bundle;
+import android.app.Activity;
+import android.view.Menu;
+import android.widget.TextView;
+
+public class MainActivity extends Activity {
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_main);
+		TextView aa = (TextView) this.findViewById(R.id.ss);
+		aa.setText(JoyplusDes.DES("7345D2A3C319CD110E4B38CD81E9A3063E515DE3AC34D5BFC813BC81247A3E14DF8BDFA679E6E49CA0876E99441C390AACE0CEA8244FDAF997ADBD9DEE987AF2FDDAABC8A2E198E53F38618A5236CEC10B6FABFA528AA6D176AF9C442567C2EDEEB4D774BB2163EA5AE9CA8A09525EB3AFD3C207663FE3D4A696D32AE35CE1E7F91702992F14DA189BA47ABD9C4CDF67BECA79055CE641D27345D2A3C319CD110E4B38CD81E9A3063E515DE3AC34D5BFC813BC81247A3E14DF8BDFA679E6E49CA0876E99441C390AACE0CEA8244FDAF997ADBD9DEE987AF2FDDAABC8A2E198E53F38618A5236CEC10B6FABFA528AA6D176AF9C442567C2EDEEB4D774BB2163EA5AE9CA8A09525EB3AFD3C207663FE3D4A696D32AE35CE1E7F91702992F14DA189BA47ABD9C4CDF671B168E7A61FB5FB1"));
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.main, menu);
+		return true;
+	}
+
+}
