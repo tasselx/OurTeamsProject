@@ -6,11 +6,24 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+
+import com.joyplus.ad.config.Log;
+
+import android.annotation.SuppressLint;
 import android.os.Environment;
 
 /** File copy/delete/move */
+@SuppressLint("NewApi")
 public class FileUtils {
-
+    /*Delete file*/
+	public static boolean deleteFile(final String filepath){
+		boolean ret = true;
+		File f = new File(filepath);
+		if(!f.exists())return true;
+		if(f.isFile())
+			ret = f.delete() == false || ret == false ? false : true;
+		return ret;
+	}
     /** Delete files or folders */
     public static boolean deleteFiles(final String path) {
         boolean ret = true;
@@ -32,7 +45,34 @@ public class FileUtils {
         }
         return ret;
     }
-
+    /*add 777 for file*/
+    public static boolean Chmod(File srcFile){
+    	if(srcFile==null || !srcFile.exists())return false;
+    	return Chmod(srcFile,"777");
+    }
+    
+    @SuppressLint("NewApi")
+	public static boolean Chmod(File srcFile,String mode){
+    	 boolean resault = true;
+    	 if(srcFile == null || !srcFile.exists())return false;
+         try {
+        	srcFile.setWritable(true);
+        	srcFile.setReadable(true);
+            Process p = Runtime.getRuntime().exec("chmod "+mode+" "+srcFile.toString());
+            Log.d(" "+("chmod "+mode+" "+srcFile.toString()));
+            int status = p.waitFor();
+            if (status == 0) {
+               resault = true;
+            } else {
+               resault = false;
+            }
+         } catch (IOException e) {
+           e.printStackTrace();
+         } catch (InterruptedException e) {
+           e.printStackTrace();
+         }
+         return resault;
+    }
     /** Copy folders */
     private static boolean copyDir(File srcDir, File dstDir) {
         if (dstDir.exists()) {
@@ -108,7 +148,7 @@ public class FileUtils {
             if (dstFile.exists()) {
                 dstFile.delete();
             }
-
+        
             OutputStream out = new FileOutputStream(dstFile);
             try {
                 int cnt;

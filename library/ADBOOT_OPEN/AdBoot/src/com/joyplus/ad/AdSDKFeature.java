@@ -5,7 +5,7 @@ package com.joyplus.ad;
 public class AdSDKFeature {
      
 	   /*Define for overload config for adkey running*/
-	   public static final boolean DEBUG                = true;
+	   public static final boolean DEBUG                = false;
 	
 	   /*Define for overload config for external
 	    * #{see@AbBootExternalConfig}*/
@@ -16,5 +16,11 @@ public class AdSDKFeature {
 	   
 	   /*Define for this SDK can Inited by Custom*/
 	   public static final boolean CUSTOM_CONFIG        = true;
+	   
+	   /*Define for miaozhen Monitor*/
+	   public static final boolean MONITOR_MIAOZHEN     = true;
+	   public static final boolean MONITOR_IRESEARCH    = true;
+	   public static final boolean MONITOR_ADMASTER     = true;
+	   public static final boolean MONITOR_NIELSEN      = true;
 	   
 }

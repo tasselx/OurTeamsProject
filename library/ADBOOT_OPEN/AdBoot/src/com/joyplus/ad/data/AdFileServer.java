@@ -11,6 +11,7 @@ import java.io.StreamCorruptedException;
 
 import com.joyplus.ad.AdConfig;
 import com.joyplus.ad.AdSDKFeature;
+import com.joyplus.ad.PublisherId;
 import com.joyplus.ad.config.Log;
 
 import android.content.Context;
@@ -31,6 +32,16 @@ public class AdFileServer {
 	 
 	 private void InitResource(Context context) { 
 		 // TODO Auto-generated method stub
+		 if(AdSDKFeature.EXTERNAL_CONFIG){
+			 if(!(AdConfig.GetBasePath() == null || "".equals(AdConfig.GetBasePath()))){
+				 BASEPATH = new File(AdConfig.GetBasePath());
+				 Log.d("Jas","BASEPATH++++++++++"+BASEPATH);
+				 //if(Mkdir(BASEPATH)){
+					 USEABLE = true;
+					 return;
+				// }
+			 }
+		 }
 		 if(FileUtils.SDExist()){
 			 BASEPATH = MkSDCarddir(context);
 			 if(BASEPATH == null && AdSDKFeature.USE_EXTERNAL_SDCARD){
@@ -42,16 +53,8 @@ public class AdFileServer {
 		 if(BASEPATH == null) 
 		       USEABLE  = false;
 		 else USEABLE = true;
-		 BASEPATH.mkdirs();
-		 Log.d("USEABLE="+USEABLE+" BASEPATH="+BASEPATH.toString());
-		 Log.d(" BASEPATH="+BASEPATH.toString()+" exist="+BASEPATH.exists()+" dir="+BASEPATH.isDirectory()
-				 +" W="+BASEPATH.canWrite()+" R="+BASEPATH.canRead());
-		 File sdkpath = context.getExternalFilesDir(null);
-		 Log.d(" sdkpath="+sdkpath.toString()+" exist="+sdkpath.exists()+" dir="+sdkpath.isDirectory()
-				 +" W="+sdkpath.canWrite()+" R="+sdkpath.canRead());
-		 File sdkpaths = context.getFilesDir();
-		 Log.d(" sdkpaths="+sdkpath.toString()+" exist="+sdkpath.exists()+" dir="+sdkpath.isDirectory()
-				 +" W="+sdkpath.canWrite()+" R="+sdkpath.canRead());
+		 if(USEABLE)BASEPATH.mkdirs();
+		 
 	 }
 
 	 private File MkSDCarddir(Context context){
@@ -67,7 +70,8 @@ public class AdFileServer {
 	 }
 	 
 	 private File MKDatadir(Context context){
-		 File  datapath = new File(context.getFilesDir(),AdConfig.GetBasePathName()+File.separator);
+		// File  datapath = new File(context.getFilesDir(),AdConfig.GetBasePathName()+File.separator);
+		 File  datapath = context.getFilesDir();
 		 if( Mkdir(datapath))return datapath;
 		 return null;
 	 }
@@ -91,12 +95,14 @@ public class AdFileServer {
 	    	return USEABLE;
 	 }
 	 
-	 public boolean writeSerializableData(String filename, Object o){	
-		    if(!USEABLE)return false;
-		    Log.d("Server writeSerializableData() name="+filename);
+	 public boolean writeSerializableData(String filename, Object o,PublisherId id){	
+		    if(!USEABLE || id == null || !id.CheckId())return false;
+		    //Log.d("Server writeSerializableData() name="+filename);
 		    synchronized(mObject){
 				try{
-					File data = new File(GetBasePath(),filename);					
+					File dir  = new File(GetBasePath(),id.GetPublisherId());
+					dir.mkdirs();
+					File data = new File(dir,filename);	
 					FileOutputStream fop   = new FileOutputStream(data);
 					ObjectOutputStream oos = new ObjectOutputStream(fop);
 					oos.writeObject(o);
@@ -113,12 +119,12 @@ public class AdFileServer {
 			}
 		}
 		
-		public Object readSerializableData(String filename){
-			   if(!USEABLE)return null;
-			   Log.d("Server readSerializableData() name="+filename);
+		public Object readSerializableData(String filename,PublisherId id){
+			   if(!USEABLE || id == null || !id.CheckId())return null;
+			   //Log.d("Server readSerializableData() name="+filename);
 			   synchronized(mObject){
 					try{
-						File              data = new File(GetBasePath(),filename);
+						File              data = new File(GetBasePath(),id.GetPublisherId()+File.separator+filename);
 						FileInputStream   fis  = new FileInputStream(data);
 						ObjectInputStream ois  = new ObjectInputStream(fis);
 						Object            file = (Object)ois.readObject();

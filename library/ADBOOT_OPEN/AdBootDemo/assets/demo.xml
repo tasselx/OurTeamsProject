@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ad type="open" animation="none">
+<video orientation="" expiration="">
+<creative display="" delivery="" type="" bitrate="" width="" height="">
+<![CDATA[ ]]>
+</creative>
+<creative2 display="" delivery="" type="" bitrate="" width="" height="">
+<![CDATA[
+http://advresource.joyplus.tv/res/7348f8c6cd639700602177b9bd13d73c.zip
+]]>
+</creative2>
+<creative3 display="" delivery="" type="" bitrate="" width="" height="">
+<![CDATA[
+http://advresource.joyplus.tv/res/26517967c7c2a097e83f4060522aca7f.mp4
+]]>
+</creative3>
+<impressionurl>
+<![CDATA[
+http://advapitest.yue001.com/advapi/v1/mdtrack?rh=d04f4eb668c586d54c2a7e6b67f3db59
+]]>
+</impressionurl>
+<trackingurl_miaozhen>
+<![CDATA[
+http://g.mbm.cn.miaozhen.com/x.gif?k=1868&p=82u&ns=[M_ADIP]&ni=[M_IESID]&na=[M_MAC]&rt=2&o={ARRAY_ARRAY}http://g.mbm.cn.miaozhen.com/x.gif?k=1868&p=82u&ns=[M_ADIP]&ni=[M_IESID]&na=[M_MAC]&rt=2&o=
+]]>
+</trackingurl_miaozhen>
+<trackingurl_iresearch>
+<![CDATA[
+http://1.irs02.com/main/s?mac=%mac%&dm=%dm%&d=iadvalue&i=l20439,46537,47123&t=91&kv=ott|%mac%_%dm%_IP
+]]>
+</trackingurl_iresearch>
+<trackingurl_admaster>
+<![CDATA[
+http:/trackingurl_admaster/1.irs02.com/main/s?mac=%mac%&dm=%dm%&d=iadvalue&i=l20439,46537,47123&t=91&kv=ott|%mac%_%dm%_IP
+]]>
+</trackingurl_admaster>
+<trackingurl_nielsen>
+<![CDATA[
+http:/trackingurl_admaster/1.irs02.com/main/s?mac=%mac%&dm=%dm%&d=iadvalue&i=l20439,46537,47123&t=91&kv=ott|%mac%_%dm%_IP
+]]>
+</trackingurl_nielsen>
+</video>
+</ad>

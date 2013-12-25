@@ -1,6 +1,7 @@
 package com.joyplus.ad;
 
 
+import com.joyplus.ad.Monitor.AdMonitorManager;
 import com.joyplus.ad.download.DownLoadManager;
 
 import android.content.Context;
@@ -55,6 +56,7 @@ public class AdSDKManager {
 			  AdFileManager.Init(mContext); 
 			  AdManager.Init(mContext);
 			  DownLoadManager.Init();
+			  AdMonitorManager.Init(mContext);
 			  SetSDKInited();
 		  } catch (AdSDKManagerException e) {
 			  // TODO Auto-generated catch block
@@ -79,7 +81,8 @@ public class AdSDKManager {
 		  SONY         (6,"SONY"),
 		  PANASONIC    (7,"Panasonic"),
 		  TCL          (8,"TCL"),
-		  HISENSE      (9,"Hisense");
+		  HISENSE      (9,"Hisense"),
+		  JOYPLUS      (10,"Joyplus");
 		  int CUSTOM;
 		  String BRAND;
 		  CUSTOMTYPE(int Custom,String Brand){

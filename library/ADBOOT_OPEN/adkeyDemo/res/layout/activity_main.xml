@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <Button
+        android:id="@+id/show_banner"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickShowBanner"
+        android:text="Show Banner" />
+
+    <Button
+        android:id="@+id/show_video"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_banner"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickShowVideoInterstitial"
+        android:text="Show Video/Interstitial" />
+    <Button
+        android:id="@+id/show_patch_before"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_video"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickShowPatchVideo"
+        android:text="Show Pre Patch" />
+    <Button
+        android:id="@+id/show_patch_after"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_patch_before"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickShowAfterPatchVideo"
+        android:text="Show After Patch" />
+    
+    <Button
+        android:id="@+id/show_patch_middle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/show_patch_after"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickShowMiddlePatchVideo"
+        android:text="Show Middle Patch" />
+     
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="31dp"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:text="This is a demo of joyplus's adkey!" />
+
+</RelativeLayout>
